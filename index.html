@@ -89,51 +89,6 @@
 
 							</style>
 		
-							<script async="" src="./index_files/sptw.js"></script><script async="" src="./index_files/it.js"></script><script type="text/javascript">
-				/*
-							Caching Private Domain Suffix Finder v0.3.7
-							Copyright (c) 2016, Sanford Whiteman/TEKNKL
-							MIT License
-
-							contains [JAAAulde/cookies v3.0.6](https://github.com/JAAulde/cookies)
-							Copyright (c) 2005-2015, Jim Auldridge
-							MIT License (https://raw.githubusercontent.com/JAAulde/cookies/master/LICENSE)
-							*/
-				(function(f,k){(function(k,e){"object"===typeof module&&null!==module&&module.exports?module.exports=exports=e():"function"===typeof define&&define.amd?define(e):f[k]=e()})("cookies",function(){var m=f.document,e={expires:null,path:"/",domain:null,secure:!1},d=function(a){"object"===typeof f.console&&null!==f.console&&"function"===typeof f.console.warn&&(d=function(a){f.console.warn(a)},d(a))},g=function(a){var b,c;"object"!==typeof a||null===a?b=e:(b={expires:e.expires,path:e.path,domain:e.domain,
-					secure:e.secure},"object"===typeof a.expires&&a.expires instanceof Date?b.expires=a.expires:"object"===typeof a.expires_at&&a.expires_at instanceof Date?(b.expires=a.expires_at,d('Cookie option "expires_at" has been deprecated. Rename to "expires". Support for "expires_at" will be removed in a version to come.')):"object"===typeof a.expiresAt&&a.expiresAt instanceof Date?(b.expires=a.expiresAt,d('Cookie option "expiresAt" has been deprecated. Rename to "expires". Support for "expiresAt" will be removed in a version to come.')):
-					"number"===typeof a.hoursToLive&&0!==a.hoursToLive&&(c=new Date,c.setTime(c.getTime()+36E5*a.hoursToLive),b.expires=c,d('Cookie option "hoursToLive" has been deprecated. Rename to "expires" and prodvide a Date instance (see documentation). Support for "hoursToLive" will be removed in a version to come.')),"string"===typeof a.path&&""!==a.path&&(b.path=a.path),"string"===typeof a.domain&&""!==a.domain&&(b.domain=a.domain),!0===a.secure&&(b.secure=a.secure));return b},n=function(){return String.prototype.trim?
-					function(a){return String.prototype.trim.call(a)}:function(){var a,b;a=/^\s+/;b=/\s+$/;return function(c){return c.replace(a,"").replace(b,"")}}()}(),l=function(){var a=/\d/,b=f.isNaN;return function(c){return null===c||!a.test(c)||b(c)}}(),p=function(){var a,b;a=JSON&&"function"===typeof JSON.parse?function(a){var b=null;if("string"===typeof a&&""!==a&&(a=n(a),""!==a))try{b=JSON.parse(a)}catch(t){b=null}return b}:function(){return null};b=/^(?:\{.*\}|\[.*\])$/;return function(){var c={},q=m.cookie.split(";"),
-					f=q.length,e,d,g,h;for(e=0;e<f;e+=1){d=q[e].split("=");g=n(d.shift());d=1<=d.length?d.join("="):"";try{h=decodeURIComponent(d)}catch(r){h=d}try{h="true"===h?!0:"false"===h?!1:l(h)?b.test(h)?a(h):h:parseFloat(h)}catch(r){}c[g]=h}return c}}();return{get:function(a){var b,c,d=p();if("string"===typeof a)b=d[a]!==k?d[a]:null;else if("object"===typeof a&&null!==a)for(c in b={},a)Object.prototype.hasOwnProperty.call(a,c)&&(b[a[c]]=d[a[c]]!==k?d[a[c]]:null);else b=d;return b},filter:function(a){var b,c={},
-						d=p();"string"===typeof a&&(a=new RegExp(a));for(b in d)Object.prototype.hasOwnProperty.call(d,b)&&b.match(a)&&(c[b]=d[b]);return c},set:function(a,b,c){if("object"!==typeof c||null===c)c={};if(b===k||null===b)b="",c.expires=new Date,c.expires.setFullYear(1978);else if(b=!0===b?"true":!1===b?"false":l(b)?b:String(b),"string"!==typeof b)if("object"===typeof JSON&&null!==JSON&&"function"===typeof JSON.stringify)b=JSON.stringify(b);else throw Error("cookies.set() could not be serialize the value");a=
-						a+"="+encodeURIComponent(b);c=g(c);c=["object"===typeof c.expires&&c.expires instanceof Date?"; expires="+c.expires.toGMTString():"","; path="+c.path,"string"===typeof c.domain?"; domain="+c.domain:"",!0===c.secure?"; secure":""].join("");m.cookie=a+c},del:function(a,b){var c={},d;if("object"!==typeof b||null===b)b={};"boolean"===typeof a&&!0===a?c=this.get():"string"===typeof a&&(c[a]=!0);for(d in c)Object.prototype.hasOwnProperty.call(c,d)&&"string"===typeof d&&""!==d&&this.set(d,null,b)},test:function(){var a=
-						!1;this.set("test_cookies_jaaulde_js","data");"data"===this.get("test_cookies_jaaulde_js")&&(this.del("test_cookies_jaaulde_js"),a=!0);return a},setOptions:function(a){"object"!==typeof a&&(a=null);e=g(a)}}})})(this);
-				function findPrivateSuffix(f){var k={},m=RegExp("(?:^|\\s|;)(?:_mch_auto_domain=)(.*?)(?:;|$)","ig"),e={},d,g;f=f||{};k[2]=!0;try{if(d=sessionStorage.getItem("shortestPrivateSuffix"),f.cache&&!d)try{sessionStorage.setItem("_mch_cache_test",""),sessionStorage.removeItem("_mch_cache_test"),k[1]=!0}catch(p){}}catch(p){}if(f.cache&&d)e.source=1;else{f=document.location.hostname.split(/\./);g=0;for(var n=f.length;g<n;g++){var l=f.slice(g).join(".");cookies.set("_mch_auto_domain",l,{domain:l})}for(f=document.cookie.toString();g=
-					m.exec(f);)if(g=g[1],!d||g.length<d.length)d=g,cookies.del("_mch_auto_domain",{domain:g});e.source=2;1==k[1]&&sessionStorage.setItem("shortestPrivateSuffix",d)}e.cookieDomain="."+d;e.domainLevel=d.split(".").length;return e};
-			</script>
-
-							<script id="ip-trkr" type="text/javascript" async="1">
-					;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
-					p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
-					};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
-					n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","https://cdn.instapagemetrics.com/t/js/it.js","instapageSp"));
-					;(function(i,n,s,t,a,p,g){i[a]||(i[a]=function(){(i[a].q=i[a].q||[]).push(arguments)},
-					i[a].q=i[a].q||[],p=n.createElement(s),g=n.getElementsByTagName(s)[0],p.async=1,
-					p.src=t,g.parentNode.insertBefore(p,g))}(window,document,"script","https://g.fastcdn.co/js/sptw.js","_instapageSnowplow"));
-					try {
-						window._instapageSnowplow('setWrapperConfig', {
-							lpContext: {
-								lp_id: 13211191,
-								lp_variation_id: 1,
-								lp_version: 18,
-								subaccount_id: 913490							}
-						});
-						window._instapageSnowplow('enableActivityTracking');
-						window._instapageSnowplow('trackPageView');
-					} catch (e) {
-						console.warn('Snowplow tracker error', e);
-					}
-				</script>
-			
 		
 		<link rel="stylesheet" type="text/css" href="./index_files/pageserver.page2.02e1082d15a730c03ccf97fef398fffb.css">
 
@@ -149,24 +104,7 @@
 					height: 100%;
 				};
 			</style>
-			<script type="text/javascript">
-
-				setTimeout(function()
-				{
-					"use strict";
-					try
-					{
-						var body = document.body;
-						var html = document.documentElement;
-						var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-
-						html.style.setProperty( 'height', height + 'px' );
-					}
-					catch( e )
-					{
-					}
-				}, 1 );
-			</script>
+			
 			
 			<style type="text/css">
 				body
