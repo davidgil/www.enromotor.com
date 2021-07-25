@@ -1796,95 +1796,9 @@ screen and (min-width: 1000px) and (-webkit-max-device-pixel-ratio: 1.5)
 					</div>
 									</div>
 
-							<!-- No ReCaptcha enabled -->		
-		<div id="fb-root"></div>
 
 		
 		
-		
-		
-				
-				
-		
-		
-		<script>
-			function getWidgetsHorizontalBoundries()
-			{
-					var $body;
-					var page_width;
-					var edges = { left: 0, right: 0 };
-
-					$body = ijQuery( 'html, body' );
-					page_width = ijQuery( '.block-inner' ).first().width();
-
-					ijQuery( '.page-element:visible' ).each( function( index, elem )
-					{
-							var $elem = ijQuery( elem );
-							var left = $elem.position().left;
-							var width = $elem.width();
-							var right = left + width;
-							if ( left < 0 && edges.left > left )
-							{
-									edges.left = left;
-							}
-
-							if ( right > page_width && edges.right < right )
-							{
-									edges.right = right;
-							}
-					} );
-
-					max = Math.max( Math.abs( edges.left ), edges.right - page_width );
-					return page_width + max * 2;
-			}
-			window.__workspaceWidth = getWidgetsHorizontalBoundries();
-		</script>
-
-					<script>
-				ijQuery( document ).ready( function()
-				{
-					var $window = ijQuery( window );
-					var last_window_width;
-
-					function setupScroll()
-					{
-						var window_width = $window.width();
-						var $body;
-						var page_width;
-						var edges = { left: 0, right: 0 };
-						var max;
-						var width;
-						var scroll_left = 0;
-
-						if ( last_window_width !== window_width )
-						{
-							$body = ijQuery( 'html, body' );
-
-							if ( window.__workspaceWidth > window_width && window_width > 400 )
-							{
-								scroll_left = Math.round( ( window.__workspaceWidth - window_width ) / 2 );
-								$body.css( 'min-width', window.__workspaceWidth + 'px' );
-								ijQuery( 'html' ).css( 'overflow-x', 'visible' );
-								$body.scrollLeft( scroll_left );
-							}
-							else
-							{
-								$body.css( 'min-width', '' );
-								$body.scrollLeft( 0 );
-								ijQuery( 'html' ).css( 'overflow-x', 'hidden' );
-							}
-
-							last_window_width = window_width;
-						}
-					}
-
-					setupScroll();
-
-					$window
-						.off( 'resize.horizontalScrollHandler' )
-						.on( 'resize.horizontalScrollHandler', setupScroll );
-				} );
-			</script>
-							<script async="" src="./index_files/lib.js"></script>
+	
 		
 		</body></html>
